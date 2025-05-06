@@ -1,0 +1,58 @@
+1. python —version
+2. cd desktop
+3. mkdir project
+4. cd project
+5. python -m venv name
+6. #if error > Set-ExecutionPolicy Unrestricted -scope process
+7. .\name\Scripts\activate
+8. pip install django
+9. django-admin startproject mysite         or         python -m django startproject mysite
+10. cd mysite
+11. python manage.py runserver
+12. python manage.py startapp myapp
+-------------------------------------
+A. code home.html:
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>HTML Forms</h2>
+
+<form action="/action_page.php">
+  <label for="fname">First name:</label><br>
+  <input type="text" id="fname" name="fname" value="John"><br>
+  <label for="lname">Last name:</label><br>
+  <input type="text" id="lname" name="lname" value="Doe"><br><br>
+  <input type="submit" value="Submit">
+</form>     
+
+<p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
+
+</body>
+</html>
+-------------------------------------
+mysite/urls.py:
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('myapp.urls')),
+]
+--------------------------------------
+mysite/setting.py:
+'myapp' la naw installed_apps
+--------------------------------------
+myapp/views.py:
+from django.shortcuts import render,HttpResponse
+
+def home(request):
+    return render(request, 'home.html')
+--------------------------------------
+myapp/urls.py:
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.home, name='home'),
+]
