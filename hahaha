@@ -3,13 +3,14 @@
 3. mkdir project
 4. cd project
 5. python -m venv name
-6. #if error > Set-ExecutionPolicy Unrestricted -scope process
-7. .\name\Scripts\activate
-8. pip install django
-9. django-admin startproject mysite         or         python -m django startproject mysite
-10. cd mysite
-11. python manage.py runserver
-12. python manage.py startapp myapp
+6. cd name
+7. #if error > Set-ExecutionPolicy Unrestricted -scope process
+8. .\name\Scripts\activate
+9. pip install django
+10. django-admin startproject mysite         or         python -m django startproject mysite
+11. cd mysite
+12. python manage.py runserver
+13. python manage.py startapp myapp
 -------------------------------------
 A. code home.html:
 <!DOCTYPE html>
